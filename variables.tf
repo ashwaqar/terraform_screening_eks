@@ -89,9 +89,13 @@ variable "max_size" {
   type = number
 }
 
-
 variable "bootstrap_extra_args" {
   type        = string
   default     = "--enable-docker-bridge true"
   description = "Extra arguments to the `bootstrap.sh` script to enable `--enable-docker-bridge` or `--use-max-pods`"
+}
+
+variable "write_kubeconfig" {
+  type    = bool
+  default = false
 }
