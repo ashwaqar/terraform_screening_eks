@@ -16,6 +16,8 @@ module "gh-eks-cluster" {
 
   cluster_enabled_log_types = var.cluster_enabled_log_types
 
+  enable_irsa = true
+
   tags = {
     environment = var.environment
   }
