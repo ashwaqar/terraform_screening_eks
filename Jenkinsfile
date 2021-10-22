@@ -37,6 +37,20 @@ pipeline {
     }
 
     stages {
+        stage("Prisma IAC Scan") {
+            steps {
+                script {
+                    prismaIaC assetName: 'screening-prisma-terraform-scan',
+                        failureCriteriaHigh: '1000',
+                        failureCriteriaLow: '1000',
+                        failureCriteriaMedium: '1000',
+                        failureCriteriaOperator: 'AND',
+                        tags: "env:${params.TARGET_ENVIRONMENT}, repo:${env.JOB_BASE_NAME}, branch: ${env.BRANCH_NAME}",
+                        templateType: 'TF',
+                        templateVersion: ''
+                }
+            }
+        }
         stage("Define Environment Variables") {
             environment {
                 AWS_ACCESS_KEY_ID       = credentials("${env.TF_AWS_ACCOUNT}_TERRAFORM_ACCESS_KEY")
