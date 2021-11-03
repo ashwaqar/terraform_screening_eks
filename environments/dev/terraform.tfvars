@@ -28,6 +28,10 @@ additional_private_routes = [
     cidr_block = "10.67.0.0/16",
     gateway_id = "pcx-0ad2a0c7bcfe2ef8b"
   },
+  {
+  cidr_block = "10.12.0.0/16",
+  gateway_id = "vgw-0d35a64de42d2f12e"
+  },
 ]
 additional_public_routes  = [
   {
@@ -51,9 +55,13 @@ additional_public_routes  = [
     cidr_block = "10.67.0.0/16",
     gateway_id = "pcx-0ad2a0c7bcfe2ef8b"
   },
+  {
+    cidr_block = "10.12.0.0/16",
+    gateway_id = "vgw-0d35a64de42d2f12e"
+  },
 ]
 
 # node group scale
-desired_size = 2
+desired_size = 3
 max_size     = 4
 min_size     = 1
