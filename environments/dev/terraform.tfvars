@@ -62,6 +62,6 @@ additional_public_routes  = [
 ]
 
 # node group scale
-desired_size = 3
-max_size     = 4
+desired_size = 4
+max_size     = 6
 min_size     = 1
