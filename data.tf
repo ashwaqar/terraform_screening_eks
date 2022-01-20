@@ -46,10 +46,6 @@ data "aws_ami" "ec2_latest" {
   }
 }
 
-data "aws_launch_template" "bastion" {
-  name = "${local.prefix}-bastion"
-}
-
 data "template_file" "userdata" {
   template = file("${path.module}/templates/userdata.tpl")
 
