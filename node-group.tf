@@ -19,6 +19,7 @@ resource "aws_eks_node_group" "node-group" {
 
   remote_access {
     ec2_ssh_key = aws_key_pair.deployer.key_name
+    source_security_group_ids = [aws_security_group.gh_vpn.id]
   }
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.
@@ -31,7 +32,7 @@ resource "aws_eks_node_group" "node-group" {
   ]
 
   lifecycle {
-    create_before_destroy = true
+    create_before_destroy = false
   }
 
   tags = {
@@ -56,6 +57,7 @@ resource "aws_eks_node_group" "node-group-1" {
 
   remote_access {
     ec2_ssh_key = aws_key_pair.deployer.key_name
+    source_security_group_ids = [aws_security_group.gh_vpn.id]
   }
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.
@@ -68,7 +70,7 @@ resource "aws_eks_node_group" "node-group-1" {
   ]
 
   lifecycle {
-    create_before_destroy = true
+    create_before_destroy = false
   }
 
   tags = {
